@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "AudioInputDemo",
+  "short_name": "AudioInputDemo",
+  "version": "com.exelerus.apps.audioinputdemo",
+  "description": "A sample Apache Cordova application that demonstrates the cordova-plugin-audioinput plugin.",
+  "author": "exelerus",
+  "icons": [],
+  "start_url": "index.html"
+}

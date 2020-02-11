@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.exelerus.apps.audioinputdemo" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AudioInputDemo</name>
+    <description>
+        A sample Apache Cordova application that demonstrates the cordova-plugin-audioinput plugin.
+    </description>
+    <author email="exelerus.apps@gmail.com" href="https://exelerus.com">
+        exelerus
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>
