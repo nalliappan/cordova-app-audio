@@ -110,17 +110,18 @@ var stopCapture = function () {
             audioDataBuffer = [];
 
             var reader = new FileReader();
-            reader.readAsDataURL(blob); 
+            reader.readAsDataURL(blob);
             reader.onloadend = function() {
-                //var base64data = reader.result;     
+                var base64data = reader.result;
                 let encoded = reader.result.toString().replace(/^data:(.*,)?/, '');
                 if ((encoded.length % 4) > 0) {
                     encoded += '='.repeat(4 - (encoded.length % 4));
                 }
-                //resolve(encoded);           
+                //resolve(encoded);
                 //console.log(encoded);
                 //document.getElementById('test').innerHTML = encoded;
-                postData('https://dialogflow.googleapis.com/v2/projects/newagent-endkws/agent/sessions/123456789:detectIntent', 
+                console.log(base64data);
+                postData('https://dialogflow.googleapis.com/v2/projects/sia-poc-tmrqcp/agent/sessions/123456789:detectIntent',
                 {
                     queryInput: {
                       audioConfig: {
@@ -136,8 +137,8 @@ var stopCapture = function () {
                        }else if(data.queryResult.fulfillmentText.indexOf('permission_application') !== -1){
                             window.location.href="permission_request.html";
                        }
-                        
-                    } 
+
+                    }
                 });
             }
 
@@ -151,7 +152,7 @@ var stopCapture = function () {
                 credentials: 'same-origin', // include, *same-origin, omit
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization" : 'Bearer ya29.c.Ko8BvQfng--6kh1SMGc8ZUX5Bm6glKJpxRWjT7IEZGG_QKrPIQR1a3ome7q1ks_0oylnAad9T9VDHSyTtrtONFn0i0Ug_xuzq_TkYjpFS5G5gsJiyfbSZl54W01cB-oNgWfnI0VKPmukhp9AenTL3xw4RRPRM8_6CFyZofdYTqblCZW5n6HEjvM-3klXPJrfqZM'
+                    "Authorization" : 'Bearer ya29.c.Ko8BvQcOGarV0IWnNFc2noRsibUstsuhNzE4LxWYFAibRGiLKm1O98XSmCEB-RkhuxOiIOL1Vc139g8btgo7uCrlpzXVoqtsfyQYhdq8iwtEV7dmxdyA8kvr9dBST83Bhz72X4vD46MfMXIUfCaovuuQSTL_eLNIb_ClXXWX3iCYVsG6it_uEcnWyesu6bfuTbs'
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 redirect: 'follow', // manual, *follow, error
@@ -160,8 +161,8 @@ var stopCapture = function () {
                 });
                 return await response.json(); // parses JSON response into native JavaScript objects
             }
-  
-  
+
+
 
             window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dir) {
                 var fileName = new Date().YYYYMMDDHHMMSS() + ".wav";
